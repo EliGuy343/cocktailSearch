@@ -1,12 +1,12 @@
 
 import './App.css';
-import Header from './components/header/Header';
+import Searchbar from './components/searchbar/Searchbar';
 import DrinkState from './context/drinkContext/DrinkState';
 function App() {
   return (
     <DrinkState>
       <div className="App">
-      <Header/>
+      <Searchbar/>
       </div>
     </DrinkState>
   );

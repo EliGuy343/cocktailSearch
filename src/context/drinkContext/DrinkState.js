@@ -22,13 +22,15 @@ const DrinkState = props => {
     }
     const [state, dispatch] = useReducer(drinkReducer, initialState); 
     
-    const SearchDrinks = async (drink) => {
+    const getDrinks = async (drink) => {
         if(drink) {
             try {
-                const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`); 
-                
+                console.log(drink);
+                const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`);
+                console.log(res.data);
+                dispatch({type:GET_DRINKS, payload:res.data}); 
             } catch (error) {
-                
+                dispatch({type:DRINK_ERROR, payload:error}); 
             }
         }
     }
@@ -39,7 +41,8 @@ const DrinkState = props => {
                 drinks:state.drinks,
                 curr_drink: state.curr_drink,
                 error: state.error,
-                loading: state.loading
+                loading: state.loading, 
+                getDrinks
             }}
         >
             {props.children}
