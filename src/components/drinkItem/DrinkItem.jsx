@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import drinkContext from '../../context/drinkContext/drinkContext'
 import './drinkItem.scss'
 function DrinkItem({drink}) {
-
+    const {setCurrent} = useContext(drinkContext); 
   return (
-    <div className='drink-item'>
+    <div className='drink-item' onClick={() => setCurrent(drink)}>
         <img  src={drink.strDrinkThumb} />
-        <span className='title'>Title:{drink.strDrink}</span>       
+        <span className='title'>{drink.strDrink}</span>       
     </div>
   )
 }

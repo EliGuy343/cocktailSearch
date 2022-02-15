@@ -15,9 +15,10 @@ function DrinkList() {
 
   return (
     <div className='drink-list'>
+      <h3>Drinks Found:</h3>
       {drinks.map(drink => (<DrinkItem key={drink.idDrink} drink={drink}/>))}
     </div>
   )
 }
 
-export default DrinkList
+export default DrinkList;

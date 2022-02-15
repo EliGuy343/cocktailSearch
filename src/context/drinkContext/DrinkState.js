@@ -9,7 +9,8 @@ import {
     FILTER_DRINKS,
     DRINK_ERROR,
     CLEAR_FILTER,
-    SORT_DRINKS
+    SORT_DRINKS,
+    SET_CURRENT
 } from "./Actions";
 
 
@@ -25,14 +26,16 @@ const DrinkState = props => {
     const getDrinks = async (drink) => {
         if(drink) {
             try {
-                console.log(drink);
                 const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`);
-                console.log(res.data);
                 dispatch({type:GET_DRINKS, payload:res.data.drinks}); 
             } catch (error) {
                 dispatch({type:DRINK_ERROR, payload:error}); 
             }
         }
+    }
+
+    const setCurrent = (drink) => {
+        dispatch({type:SET_CURRENT, payload:drink});
     }
 
     return (
@@ -42,7 +45,8 @@ const DrinkState = props => {
                 curr_drink: state.curr_drink,
                 error: state.error,
                 loading: state.loading, 
-                getDrinks
+                getDrinks,
+                setCurrent
             }}
         >
             {props.children}
