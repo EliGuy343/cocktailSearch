@@ -20,7 +20,7 @@ function Searchbar() {
         <div className='container'>
         <form className="input">
             <h1 className='title'>Drinks Finder</h1>
-            <input ref={search} type="name" placeholder="search a drink" className='search'/>
+            <input ref={search} type="name" placeholder="search for a drink" className='search'/>
                 <button className="searchButton" onClick={onSearchClick}>
                 Search
                 </button>
