@@ -1,0 +1,22 @@
+.drink-item {
+    margin: 10px;
+    border-radius: 20px;
+    display:flex;
+    align-items: flex-start;
+    background-color: #f5deb3;
+    cursor: pointer;
+    img {
+        border-radius: 50px;
+        margin-top: 6px;
+        margin-left: 6px;
+        height: 50px;
+        width: 50px;
+    }
+    span {
+        margin: 10px;
+        font-size: 16px;
+    }
+    &:hover{
+        background-color: #fad590;
+    }
+}

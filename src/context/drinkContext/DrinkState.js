@@ -28,7 +28,7 @@ const DrinkState = props => {
                 console.log(drink);
                 const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`);
                 console.log(res.data);
-                dispatch({type:GET_DRINKS, payload:res.data}); 
+                dispatch({type:GET_DRINKS, payload:res.data.drinks}); 
             } catch (error) {
                 dispatch({type:DRINK_ERROR, payload:error}); 
             }
