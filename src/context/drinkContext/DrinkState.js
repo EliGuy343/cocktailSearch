@@ -10,8 +10,10 @@ import {
     DRINK_ERROR,
     CLEAR_FILTER,
     SORT_DRINKS,
-    SET_CURRENT
+    SET_CURRENT,
+    FILTER_INGREDIENT
 } from "./Actions";
+
 
 
 const DrinkState = props => {
@@ -33,7 +35,9 @@ const DrinkState = props => {
             }
         }
     }
-
+    const filterIngrdients = (filter) => {
+        dispatch({type:FILTER_INGREDIENT, payload:filter}); 
+    }
     const setCurrent = (drink) => {
         dispatch({type:SET_CURRENT, payload:drink});
     }
@@ -46,7 +50,8 @@ const DrinkState = props => {
                 error: state.error,
                 loading: state.loading, 
                 getDrinks,
-                setCurrent
+                setCurrent,
+                filterIngrdients
             }}
         >
             {props.children}
